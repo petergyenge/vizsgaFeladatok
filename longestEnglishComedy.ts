@@ -9,7 +9,7 @@ let movies: Movie[] = [
     {
         title: "Ace Ventura",
         genre: "comedy",
-        originalLanguage: "english",
+        originalLanguage: "ensglish",
         length: 12,
     },
     {
@@ -27,7 +27,7 @@ let movies: Movie[] = [
     {
         title: "Ace Ventura 2",
         genre: "comedy",
-        originalLanguage: "english",
+        originalLanguage: "englsish",
         length: 8,
     },
     {
@@ -39,8 +39,8 @@ let movies: Movie[] = [
     {
         title: "Ace Ventura 3",
         genre: "comedy",
-        originalLanguage: "english",
-        length: 1,
+        originalLanguage: "englsish",
+        length: 1000,
     },
 ];
 
@@ -53,24 +53,30 @@ function getLongestEnglishComedy(arr: Movie[]): string | null {
             newArray = [...newArray, arr[i]];
         i++;
     }
-    let sortedArray: Movie[] = [];
-    let j = 0;
-    let shorter: boolean = false;
-    while (newArray[j] !== undefined) {
-        if (shorter !== false) {
-            sortedArray = [...sortedArray, newArray[j]];
-        }
-        let k = 0;
-        while (newArray[k + 1] !== undefined) {
-            if (newArray[k].length < newArray[k + 1].length) {
-                shorter = true;
-            }
-            k++;
-        }
-        j++;
-    }
-    console.log(sortedArray);
-    result = sortedArray[0].title;
+            // let sortedArray: Movie[] = [];
+            // let j = 0
+            // while(newArray[j] !== undefined){
+            //     if(newArray[j].length > newArray[j + 1].length){
+            //         sortedArray = newArray
+            //     }
+            //     j++
+            // }
+    // let j = 0;
+    // let shorter: boolean = false;
+    // while (newArray[j] !== undefined) {
+    //     let k = 0;
+    //     while (newArray[k + 1] !== undefined) {
+    //         if (newArray[k].length > newArray[k + 1].length) {
+    //             shorter = true;
+    //         }
+    //         k++;
+    //     }
+    //     if (shorter !== false) {
+    //         sortedArray = [...sortedArray, newArray[j]];
+    //     }
+    //     j++;
+    //     shorter = false
+    //}
 
     return result;
 }
