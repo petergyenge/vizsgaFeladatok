@@ -9,19 +9,19 @@ let movies: Movie[] = [
   {
     title: "Ace Ventura",
     genre: "comedy",
-    originalLanguage: "english",
+    originalLanguage: "nemet",
     length: 12,
   },
   {
     title: "Titanic",
     genre: "drama",
-    originalLanguage: "english",
+    originalLanguage: "nemet",
     length: 180,
   },
   {
     title: "aceve",
     genre: "comedy",
-    originalLanguage: "dsa",
+    originalLanguage: "english",
     length: 200,
   },
   {
@@ -33,7 +33,7 @@ let movies: Movie[] = [
   {
     title: "Titanic",
     genre: "dsa",
-    originalLanguage: "english",
+    originalLanguage: "nemet",
     length: 200,
   },
   {
@@ -44,29 +44,38 @@ let movies: Movie[] = [
   },
 ];
 
-function getLongestEnglishComedy(arr: Movie[]): string | null {
-  let newArray: Movie[] = [];
+function getLongestEnglishComedy(movies: Movie[]): string | null {
+  let englishComedies: Movie[] = [];
   let i = 0;
-  while (arr[i] !== undefined) {
-    if (arr[i].genre === "comedy" && arr[i].originalLanguage === "english") {
-      newArray = [...newArray, arr[i]];
+  while (movies[i] !== undefined) {
+    if (movies[i].genre === "comedy" && movies[i].originalLanguage === "english") {
+      englishComedies = [...englishComedies, movies[i]];
     }
     i++;
   }
-  if (newArray === undefined) return null;
+/*    if (englishComedies[0] === undefined) return null;
 
-  let longest = 0;
-  let lastIndex = 0;
+   let longest = 0;
+   let lastIndex = 0;
+   i = 0;
+   while (englishComedies[i] !== undefined) {
+     if (englishComedies[i].length > longest) {
+       longest = englishComedies[i].length;
+       lastIndex = i;
+     }
+     i++;
+   }
+ */
+  let longest: Movie | null = null
   i = 0;
-  while (newArray[i] !== undefined) {
-    if (newArray[i].length > longest) {
-      longest = newArray[i].length;
-      lastIndex = i;
-    }
-    i++;
-  }
+   while (englishComedies[i] !== undefined) {
+     if (!longest || longest.length > englishComedies[i].length) {
+       longest = englishComedies[i];
+     }
+     i++;
+   }
 
-  return newArray[lastIndex].title;
+  return longest ? longest.title : null;
 }
 
 let test = getLongestEnglishComedy(movies);
