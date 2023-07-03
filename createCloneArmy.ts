@@ -13,7 +13,7 @@ let person: Clone = {
 function createCloneArmy(person:Clone, num:number): Clone[] {
     let result: Clone[] = []
     let i = 0
-    while(i < num){
+    while(i < num && i <100){
       result = [...result, person]
       i++
     }
@@ -21,6 +21,6 @@ function createCloneArmy(person:Clone, num:number): Clone[] {
     return result
 }
 
-let test = createCloneArmy(person, 5)
+let test = createCloneArmy(person, 500)
 console.log(test)
 export{}
